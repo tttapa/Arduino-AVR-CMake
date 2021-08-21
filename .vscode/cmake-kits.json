@@ -1,0 +1,10 @@
+[
+    {
+        "name": "Leonardo",
+        "toolchainFile": "${workspaceFolder}/cmake/toolchain/leonardo.toolchain.cmake"
+    },
+    {
+        "name": "UNO",
+        "toolchainFile": "${workspaceFolder}/cmake/toolchain/uno.toolchain.cmake"
+    }
+]
