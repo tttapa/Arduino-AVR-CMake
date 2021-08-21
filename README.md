@@ -31,3 +31,16 @@ Compile Arduino AVR programs using CMake.
     you'll have to press the reset button before uploading. You could 
     automate this by opening its serial port at 1200 baud as part of the 
     upload process.
+
+## VSCode
+
+In VSCode, you can select the board you want to use using the 
+`CMake: Select a Kit` command from the CMake Tools extension, 
+or by clicking on the corresponding button at the bottom of the window.
+Then select the right board as shown in the following image:
+![Selecting the Arduino board using CMake](images/selecting.png)
+
+To build the sketch, you can either click the `Build` button at the bottom or 
+in the CMake side panel. To upload, you can use the `upload-blink` utility in 
+the CMake side panel:
+![Uploading the Arduino board using CMake](images/uploading.png)
