@@ -8,7 +8,7 @@ include(cmake/arduino_upload.cmake)
 
 add_executable(blink blink.cpp)
 target_link_libraries(blink PUBLIC ArduinoCore)
-target_compile_options(blink PUBLIC
+target_compile_options(blink PRIVATE
     "-Wall"
     "-Wextra"
     "-pedantic"

@@ -9,6 +9,7 @@ function(arduino_avr_upload target port)
             -P${port}
             -b${ARDUINO_AVRDUDE_SPEED}
             -D
-            "-Uflash:w:$<TARGET_FILE_BASE_NAME:${target}>.hex:i")
+            "-Uflash:w:$<TARGET_FILE_BASE_NAME:${target}>.hex:i"
+        USES_TERMINAL)
     add_dependencies(upload-${target} ${target})
 endfunction()
