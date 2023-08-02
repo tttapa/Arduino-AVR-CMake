@@ -1,7 +1,7 @@
 set(CMAKE_SYSTEM_PROCESSOR avr)
 
 set(ARDUINO_PATH $ENV{HOME}/.arduino15/packages/arduino)
-set(ARDUINO_AVR_PATH ${ARDUINO_PATH}/hardware/avr/1.8.5)
+set(ARDUINO_AVR_PATH ${ARDUINO_PATH}/hardware/avr/1.8.6)
 set(ARDUINO_CORE_PATH ${ARDUINO_AVR_PATH}/cores/arduino)
 set(ARDUINO_TOOLS_PATH ${ARDUINO_PATH}/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin)
 set(ARDUINO_AVRDUDE_PATH ${ARDUINO_PATH}/tools/avrdude/6.3.0-arduino17)

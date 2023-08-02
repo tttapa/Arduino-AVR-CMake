@@ -6,7 +6,7 @@ Compile Arduino AVR programs using CMake.
 
 1. Clone this repository and open a terminal in the `Arduino-AVR-CMake` folder.
 2. Ensure that the Arduino AVR core is installed correctly, this guide assumes
-   that the core is in `~/.arduino15/packages/arduino/hardware/avr/1.8.5`,
+   that the core is in `~/.arduino15/packages/arduino/hardware/avr/1.8.6`,
    that the toolchain is in `~/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7`,
    and that avrdude is in `~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17`.
    If this is not the case, change it now in `cmake/toolchain/avr.toolchain.cmake`.
