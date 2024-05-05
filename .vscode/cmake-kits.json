@@ -6,5 +6,9 @@
     {
         "name": "UNO",
         "toolchainFile": "${workspaceFolder}/cmake/toolchain/uno.toolchain.cmake"
+    },
+    {
+        "name": "Mega 2560",
+        "toolchainFile": "${workspaceFolder}/cmake/toolchain/mega.toolchain.cmake"
     }
 ]
