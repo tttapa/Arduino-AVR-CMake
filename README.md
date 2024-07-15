@@ -19,6 +19,15 @@ Compile Arduino AVR programs using CMake.
     ```
     Customize the port, toolchain file, and build type for your specific
     configuration.
+    
+    On windows you will need to use a generator other than Visual Studio such Ninja:
+    ```sh
+    cmake -S. -Bbuild \
+        -D ARDUINO_PORT=COM1 \
+        -D CMAKE_TOOLCHAIN_FILE=cmake/toolchain/uno.toolchain.cmake \
+        -D CMAKE_BUILD_TYPE=MinSizeRel \
+        -G Ninja
+    ```
 4. Finally, build and upload the example “blink” program:
     ```sh
     cmake --build build -j -t upload-blink

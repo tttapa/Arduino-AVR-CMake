@@ -3,8 +3,14 @@ set(CMAKE_SYSTEM_NAME Generic)
 set(CMAKE_SYSTEM_PROCESSOR avr)
 
 # User settings with sensible defaults
-set(ARDUINO_PATH "$ENV{HOME}/.arduino15/packages/arduino" CACHE PATH
+if(CMAKE_HOST_WIN32)
+    set(ARDUINO_PATH_DEFAULT "$ENV{LOCALAPPDATA}/Arduino15/packages/arduino")
+else()
+    set(ARDUINO_PATH_DEFAULT "$ENV{HOME}/.arduino15/packages/arduino")
+endif()
+set(ARDUINO_PATH "${ARDUINO_PATH_DEFAULT}" CACHE PATH
     "Path of the Arduino packages folder, e.g. ~/.arduino15/packages/arduino.")
+
 set(ARDUINO_CORE_VERSION "1.8.6" CACHE STRING
     "Version of arduino/ArduinoCore-AVR")
 set(AVR_GCC_VERSION "7.3.0-atmel3.6.1-arduino7" CACHE STRING
@@ -22,16 +28,16 @@ set(ARDUINO_AVRDUDE_PATH ${ARDUINO_PATH}/tools/avrdude/${AVRDUDE_VERSION})
 set(ARDUINO_AVRDUDE_CONF ${ARDUINO_AVRDUDE_PATH}/etc/avrdude.conf)
 
 # Toolchain paths
-set(CMAKE_C_COMPILER ${ARDUINO_TOOLS_PATH}/avr-gcc CACHE FILEPATH
-    "Path to avr-gcc" FORCE)
-set(CMAKE_CXX_COMPILER ${ARDUINO_TOOLS_PATH}/avr-g++ CACHE FILEPATH
-    "Path to avr-g++" FORCE)
-set(CMAKE_OBJCOPY ${ARDUINO_TOOLS_PATH}/avr-objcopy CACHE FILEPATH
-    "Path to avr-objcopy" FORCE)
-set(CMAKE_SIZE ${ARDUINO_TOOLS_PATH}/avr-size CACHE FILEPATH
-    "Path to avr-size" FORCE)
-set(ARDUINO_AVRDUDE ${ARDUINO_AVRDUDE_PATH}/bin/avrdude CACHE FILEPATH
-    "Path to avrdude" FORCE)
+find_program(CMAKE_C_COMPILER avr-gcc PATHS "${ARDUINO_TOOLS_PATH}" NO_DEFAULT_PATH
+    DOC "Path to avr-gcc")
+find_program(CMAKE_CXX_COMPILER avr-g++ PATHS "${ARDUINO_TOOLS_PATH}" NO_DEFAULT_PATH
+    DOC "Path to avr-g++")
+find_program(CMAKE_OBJCOPY avr-objcopy PATHS "${ARDUINO_TOOLS_PATH}" NO_DEFAULT_PATH
+    DOC "Path to avr-objcopy")
+find_program(CMAKE_SIZE avr-size PATHS "${ARDUINO_TOOLS_PATH}" NO_DEFAULT_PATH
+    DOC "Path to avr-size")
+find_program(ARDUINO_AVRDUDE avrdude PATHS "${ARDUINO_AVRDUDE_PATH}/bin" NO_DEFAULT_PATH
+    DOC "Path to avrdude")
 
 # Only look libraries etc. in the sysroot, but never look there for programs
 set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
