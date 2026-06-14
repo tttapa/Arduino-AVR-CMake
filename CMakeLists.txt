@@ -5,9 +5,19 @@ include(cmake/lto.cmake)
 include(cmake/arduino_core.cmake)
 include(cmake/arduino_hex.cmake)
 include(cmake/arduino_upload.cmake)
+include(cmake/arduino_libs.cmake)
 
 add_executable(blink blink.cpp)
-target_link_libraries(blink PUBLIC ArduinoCore)
+
+# Remove comments from libraries you wish to use
+target_link_libraries(blink PUBLIC 
+    ArduinoCore
+    #ArduinoEEPROM
+    #ArduinoHID
+    #ArduinoSPI
+    #ArduinoSoftSerial
+    #ArduinoWire
+)
 target_compile_options(blink PRIVATE
     "-Wall"
     "-Wextra"
